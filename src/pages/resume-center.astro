@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+let user = null;
+if (typeof window !== 'undefined') {
+  user = await fetch('/api/session')
+    .then(res => res.json())
+    .catch(() => null);
+}
+---
+<Layout user={user}>
+  <style>
+    body {
+      background-color: #f0fff0;
+    }
+    .templates {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .template {
+      flex: 1 1 calc(50% - 16px);
+      margin: 8px;
+      padding: 16px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .template img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    .template h2 {
+      font-size: 1.5em;
+      margin: 16px 0 8px;
+    }
+    .template p {
+      margin-bottom: 16px;
+    }
+    .template a {
+      display: inline-block;
+      margin-right: 8px;
+      padding: 8px 16px;
+      text-decoration: none;
+      color: #fff;
+      background-color: #007BFF;
+      border-radius: 4px;
+    }
+  </style>
+
+  <h1 style="text-align: center; font-size: 2.5em; margin-bottom: 24px;">简历中心</h1>
+  <p style="text-align: center;">简历中心通过展示多种不同风格和布局的简历模板，帮助用户根据个人背景和求职目标选择最合适的模板。</p>
+  
+  <div class="templates">
+    <div class="template">
+      <img src="/images/jianli.png" alt="简历模板1" style="width: 300px; height: auto;">
+      <h2>简历模板1</h2>
+      <p>结构化的布局使信息一目了然，招聘者能够快速获取关键信息,适合那些有丰富工作经验和多项技能的求职者，能够突出重点和成就。</p>
+      <a href="/templates/resume-template-1.pdf" download>下载模板</a>
+      <a href="/templates/resume-template-1.pdf" target="_blank">预览模板</a>
+    </div>
+    <div class="template">
+      <img src="/images/jianli2.png" alt="简历模板2" style="width: 300px; height: auto;">
+      <h2>简历模板2</h2>
+      <p>这个简历模板适合应届毕业生，设计简洁，突出教育背景和实习经历。</p>
+      <a href="/templates/resume-template-2.pdf" download>下载模板</a>
+      <a href="/templates/resume-template-2.pdf" target="_blank">预览模板</a>
+    </div>
+    <div class="template">
+  <img src="/images/jianli3.png" alt="简历模板3" style="width: 300px; height: auto;">
+  <h2>简历模板3</h2>
+  <p>设计简洁，但又不失美观，突出了教育背景和实习经历。</p>
+  <a href="/templates/resume-template-1.pdf" download>下载模板</a>
+  <a href="/templates/resume-template-1.pdf" target="_blank">预览模板</a>
+</div>
+<div class="template">
+  <img src="/images/jianli4.png" alt="简历模板4" style="width: 300px; height: auto;">
+  <h2>简历模板4</h2>
+  <p>这个简历模板有助于突出个人技能和经验，吸引招聘者的注意，从而增加获得面试机会的可能性。</p>
+  <a href="/templates/resume-template-2.pdf" download>下载模板</a>
+  <a href="/templates/resume-template-2.pdf" target="_blank">预览模板</a>
+</div>
+  </div>
+</Layout>

@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+let user = null;
+if (typeof window !== 'undefined') {
+  user = await fetch('/api/session')
+    .then(res => res.json())
+    .catch(() => null);
+}
+---
+
+<Layout user={user}>
+  <style>
+    body {
+      background-color: #f0fff0;
+    }
+    article {
+      padding: 16px;
+      background-color: #f0fff0;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 24px;
+    }
+    p {
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+    .video-container {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .video-container iframe {
+      width: 100%; /* 让视频宽度充满容器 */
+      height: 315px; /* 固定视频高度 */
+      max-width: 560px; /* 设置视频最大宽度 */
+    }
+  </style>
+
+
+
+ <article>
+   <h1>面试技巧</h1>
+<!-- 第一个视频 -->
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.bilibili.com/video/BV1wF411w7oA/?spm_id_from=333.337.search-card.all.click" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <!-- 第二个视频 -->
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.bilibili.com/video/BV1mF411E7Yf/?spm_id_from=333.337.search-card.all.click" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+
+
+
+ 
+ 
+
+    <p><strong>1. 准备充分：</strong><br>
+      在面试前研究公司和职位，准备好针对常见问题的清晰回答。</p>
+
+    <p><strong>2. 展示专业形象：</strong><br>
+      选择合适的服装，保持整洁和专业，自信地表达。</p>
+
+    <p><strong>3. 有效沟通和表达：</strong><br>
+      使用清晰简洁的语言，举例说明你的能力和成就。</p>
+
+    <p><strong>4. 提前准备好的问题：</strong><br>
+      积极提问展示对公司和职位的兴趣，关注文化和团队。</p>
+
+    <p><strong>5. 处理挑战和压力：</strong><br>
+      冷静应对问题，展示解决问题的能力和思考能力。</p>
+
+    <p><strong>6. 跟进和感谢信：</strong><br>
+      面试后发送感谢信或邮件，表达感激之情。</p>
+
+    <p><strong>7. 自我评估和反思：</strong><br>
+      面试后反思自己的表现，寻找改进的空间。</p>
+  </article>
+</Layout>

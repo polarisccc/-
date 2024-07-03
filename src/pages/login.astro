@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+let user = null;
+if (typeof window !== 'undefined') {
+  user = await fetch('/api/session')
+    .then(res => res.json())
+    .catch(() => null);
+}
+---
+
+<Layout user={user}>
+  <style>
+    body {
+      background-color: #f0fff0;
+    }
+    article {
+      padding: 16px;
+      background-color: #f0fff0;
+    }
+    .image-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .image-container > div {
+      flex: 1 1 calc(50% - 16px); /* 50% width minus margin */
+      margin: 8px;
+      box-sizing: border-box;
+    }
+    .image-container img {
+      width: 100%;
+      height: auto;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 768px) {
+      .image-container > div {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+
+  <article>
+    <h1>目前就业情况简介</h1>
+
+    <div class="image-container">
+      <div>
+        <img src="/images/1.png" alt="就业情况图片1" width="300" height="100">
+        <p>"当前的求职市场充满了机遇与挑战。随着技术进步和经济发展，新兴行业如人工智能、区块链等领域的招聘需求不断增长。求职者可以通过不断学习和技能提升，积极适应市场变化，抓住机遇，实现个人职业发展。"<a href=" https://baijiahao.baidu.com/s?id=1802175360595941504&wfr=spider&for=pc">点击查看相关报道</a></p>
+      </div>
+      <div>
+        <img src="/images/2.png" alt="就业情况图片2">
+        <p>对于即将步入社会的大学毕业生，找工作可能是一段既挑战又充满希望的过程。重视基础知识和实践经验的同时，也要注重个人的综合素质和团队合作能力。持续学习和自我提升是打开职业发展之门的关键。<a href="https://www.xhby.net/content/s664d5cd5e4b083be474d004c.html">点击查看相关报道</a></p>
+      </div>
+      <div>
+        <img src="/images/3.png" alt="就业情况图片3">
+        <p>总书记曾指出，就业是民生之本，关乎千家万户。政府将继续加强就业政策的制定和执行，支持各行各业的发展，为广大劳动者提供更多就业机会和更好的工作环境。同时，鼓励青年人勇于创新、追求卓越，为国家和社会的发展贡献智慧和力量。<a href="https://www.chinanews.com.cn/gn/shipin/2022/06-09/news928645.shtml">点击查看相关视频</a></p>
+      </div>
+      <div>
+        <img src="/images/4.png" alt="就业情况图片4">
+        <p>总书记进入校园，深入了解教育工作和青少年成长环境，体现对未来人才培养的重视和关注。这种活动不仅是对教育系统的支持与鼓励，也是对青年学生的激励与引导。<a href="https://tv.cctv.com/2022/02/11/VIDEUxvuOmPmtUN1MtIYwa6o220211.shtml">点击查看相关视频</a></p>
+      </div>
+    </div>
+  </article>
+</Layout>

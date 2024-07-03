@@ -1,0 +1,15 @@
+---
+const { user } = Astro.props;
+import Layout from '../layouts/Layout.astro';
+---
+
+<nav style={{ backgroundColor: '#f0f0f0', width: '100%', display: 'flex' }}>
+  <ul style={{ listStyleType: 'none', margin: 0, padding: 0, display: 'flex', width: '100%' }}>
+    <li style={{ flex: 1, textAlign: 'center' }}><a href="/login" style={{ display: 'block', padding: '10px 0', textDecoration: 'none', color: '#333' }}>首页</a></li>
+    <li style={{ flex: 1, textAlign: 'center' }}><a href="/resume-center" style={{ display: 'block', padding: '10px 0', textDecoration: 'none', color: '#333' }}>简历中心</a></li>
+    <li style={{ flex: 1, textAlign: 'center' }}><a href="/interview-tips" style={{ display: 'block', padding: '10px 0', textDecoration: 'none', color: '#333' }}>面试技巧</a></li>
+    <li style={{ flex: 1, textAlign: 'center' }}><a href="/liuyan" style={{ display: 'block', padding: '10px 0', textDecoration: 'none', color: '#333' }}>在线留言</a></li>
+  </ul>
+</nav>
+
+

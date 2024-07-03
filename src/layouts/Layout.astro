@@ -1,0 +1,15 @@
+---
+import NavBar from '../components/Nav.astro';
+const { user } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>求职网页</title>
+</head>
+<body>
+  <NavBar user={user} />
+  <slot />
+</body>
+</html>
